@@ -1,0 +1,108 @@
+.container {
+  display: flex row;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin: 10px;
+}
+.product-preview-pics {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  object-fit: contain;
+  height: 100px;
+}
+.preview-pic {
+  width: 10rem;
+  height: auto;
+  cursor: pointer;
+}
+
+.selected {
+  border: 2px solid green;
+  object-fit: contain;
+}
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right-pane {
+  display: flex column;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 60%;
+}
+.left-pane {
+  display: flex column;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 40%;
+}
+.thumbnail-container {
+  display: flex;
+  justify-content: center;
+}
+.thumbnail {
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  cursor: pointer;
+
+  /* Zoom Animation */
+  /* transition: transform 0.2s; Animation */
+}
+
+/* Zoom Animation */
+.thumbnail:hover {
+  transition-delay: 1s;
+  transform: scale(
+    1.5
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.title {
+  font-weight: 700;
+}
+.description {
+  font-size: 22px;
+}
+.brand,
+.discount {
+  font-size: 18px;
+  font-weight: 700;
+}
+.rating {
+  background-color: white;
+  margin-bottom: 10px;
+}
+span {
+  font-weight: 700;
+}
+.price-with-discount {
+  font-size: 25px;
+  font-weight: 500;
+  padding: 10px;
+}
+
+.price-without-discount {
+  text-decoration: line-through;
+}
+.product-price {
+  display: flex;
+
+  align-items: center;
+}
+.discount {
+  color: green;
+}
+.deal {
+  background-color: rgb(190, 11, 11);
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 3px 10px 3px 10px;
+  color: white;
+}

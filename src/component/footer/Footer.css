@@ -1,0 +1,30 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  margin: 25px 0px 0px 0px;
+  background-color: rgb(144, 143, 149);
+  padding: 15px;
+
+  border-radius: 5px;
+}
+
+.footer-about ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  font-weight: 500;
+  padding-bottom: 10px;
+}
+.footer-social {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 20px 10px 20px;
+}
+.footer-social ul {
+  display: flex;
+  list-style: none;
+}
+.footer-social ul > li {
+  width: 30px;
+  text-align: center;
+}
