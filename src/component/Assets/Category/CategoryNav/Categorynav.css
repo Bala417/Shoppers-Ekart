@@ -1,6 +1,7 @@
 .category-nav {
   display: flex;
   align-items: center;
+  padding-top: 100px;
 }
 .category-list {
   display: flex;
@@ -28,10 +29,10 @@
   border-radius: 10px;
   background-color: rgb(189, 234, 219);
 }
-.category-list li:current {
-  border-radius: 10px;
-  background-color: rgb(189, 234, 219);
-}
 .category-list::-webkit-scrollbar {
   display: none;
+}
+.highlight-category {
+  background-color: rgb(189, 234, 219);
+  border-radius: 10px;
 }

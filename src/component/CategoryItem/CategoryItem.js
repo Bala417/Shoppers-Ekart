@@ -14,7 +14,15 @@ export const CategoryItem = ({ product }) => {
       </div>
       <div className="product-description">
         <div className="title">{product.title}</div>
-        <div className="price">$ {product.price}</div>
+        <div
+          style={{
+            fontWeight: 500,
+            fontSize: " 25px",
+            textTransform: "capitalize",
+          }}
+        >
+          $ {product.price}
+        </div>
         <div className="description">{product.decription}</div>
         <div className="rating">rating {product.rating}/5</div>
       </div>

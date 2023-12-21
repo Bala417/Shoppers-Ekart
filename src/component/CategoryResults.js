@@ -2,11 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "./CategoryResults.css";
 import { CategoryItem } from "./CategoryItem/CategoryItem";
+import { AiOutlineDropbox } from "react-icons/ai";
+import { FiLoader } from "react-icons/fi";
+
 function CategoryResults() {
   const [categoryProducts, setCategoryProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const selectedCategory = useSelector((state) => state.reducer.category);
-  console.log(selectedCategory);
+
+  const searchKey = useSelector((state) => state.search.searchKey);
+  const searchProduct = useSelector((state) => state.search.searchProductData);
 
   useEffect(() => {
     fetch(
@@ -22,16 +27,33 @@ function CategoryResults() {
 
   return !isLoading ? (
     <div className="container">
-      {categoryProducts.map((product, index) => {
-        return (
-          <div key={index}>
-            <CategoryItem product={product} />
-          </div>
-        );
-      })}
+      {!searchKey ? (
+        categoryProducts?.map((product, index) => {
+          return (
+            <div key={index}>
+              <CategoryItem product={product} />
+            </div>
+          );
+        })
+      ) : searchProduct.products?.length === 0 ? (
+        <div>
+          <AiOutlineDropbox size="200px" color="grey" className="unboxed" />
+          <p className="not-found">product not found</p>
+        </div>
+      ) : (
+        searchProduct.products?.map((product, index) => {
+          return (
+            <div key={index}>
+              <CategoryItem size={20} product={product} />
+            </div>
+          );
+        })
+      )}
     </div>
   ) : (
-    <div>Loading...</div>
+    <div className="loading">
+      <FiLoader size={40} /> Loading...
+    </div>
   );
 }
 

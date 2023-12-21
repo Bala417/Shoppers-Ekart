@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./Categorynav.css";
 import { selectedCategory } from "../../../../state/reducers/categorySlice";
 import { useDispatch } from "react-redux";
+import { productSearchKey } from "../../../../state/reducers/searchProductSlice";
 
 function CategoryNav() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [categorySelected, setCategorySelected] = useState(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,6 +36,8 @@ function CategoryNav() {
 
   const handleClick = (item) => {
     dispatch(selectedCategory(item));
+    setCategorySelected(item);
+    dispatch(productSearchKey(""));
   };
 
   return (
@@ -41,7 +45,11 @@ function CategoryNav() {
       <ul className="category-list ">
         {data.map((item, index) => {
           return (
-            <li key={index} onClick={() => handleClick(item)}>
+            <li
+              key={index}
+              onClick={() => handleClick(item)}
+              className={item === categorySelected ? "highlight-category" : ""}
+            >
               {item}
             </li>
           );

@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   padding: 10px;
   margin: 10px;
+  margin-top: 100px;
 }
 .product-preview-pics {
   display: flex;
@@ -29,6 +30,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 200px;
+  margin: 300px;
+  font-size: 20px;
+  margin-bottom: 500px;
 }
 .right-pane {
   display: flex column;
@@ -105,4 +110,31 @@ span {
   margin-top: 10px;
   padding: 3px 10px 3px 10px;
   color: white;
+}
+
+.addToCart {
+  margin: 20px 0 0 0;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px 10px 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  background-color: rgb(60, 227, 60);
+}
+.alreadyInCart button {
+  margin: 10px 0 0 0;
+  font-size: 16px;
+  padding: 10px 20px 10px 20px;
+  background-color: rgb(75, 192, 75);
+  border-radius: 10px;
+}
+.alreadyInCart p {
+  margin-top: 20px;
+  color: green;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.confirmationRef {
+  display: hidden;
 }
