@@ -41,14 +41,19 @@ function CategoryNav() {
   };
 
   return (
-    <div className="category-nav">
-      <ul className="category-list ">
+    <div
+      className="category-nav overflow-x-scroll scrollbar-hide whitespace-nowrap bg-blue-50 m-10
+    "
+    >
+      <ul className="hide-scroll-custom flex overflow-auto text-center cursor-pointer">
         {data.map((item, index) => {
           return (
             <li
               key={index}
               onClick={() => handleClick(item)}
-              className={item === categorySelected ? "highlight-category" : ""}
+              className={`${
+                item === categorySelected ? "bg-blue-100" : ""
+              } p-3 text-center m-2 padding-5 capitalize rounded-lg`}
             >
               {item}
             </li>

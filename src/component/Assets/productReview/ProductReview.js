@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
-import "./ProductReview.css";
 import profileIcon from "../images/profile-circle-svgrepo-com.svg";
 function ProductReview({ productId }) {
   const [productComments, setProductComments] = useState([]);
@@ -21,22 +20,28 @@ function ProductReview({ productId }) {
   }, [productId]);
 
   return (
-    <div className="comment-container">
+    <div className="comment-container m-5">
+      <hr className="border-solid border-slate-200 border-2" />
+      <p className="mt-10 ml-5 text-lg">Comments Section</p>
       {productComments.map((comment) => {
         return (
-          <div key={comment.id} className="comments">
-            <div className="username-container">
-              <img className="profile-icon" src={profileIcon} />
+          <div key={comment.id} className="comments m-5 mb-10">
+            <div className="username-container flex ">
+              <img className="h-8 mr-2 " alt={comment.id} src={profileIcon} />
 
-              <div className="username">{comment.user.username}</div>
+              <div className="username font-bold">{comment.user.username}</div>
             </div>
-            <div className="comment-date">
+            <div className="comment-date text-slate-500">
               Reviewed in India on 13 December 2023
             </div>
-            <div className="verified">Verified Purchase</div>
-            <div className="feedback-buttons">
-              <button className="feedback-button">Helpful</button>
-              <button className="feedback-button">Report</button>
+            <div className="verified text-orange-500">Verified Purchase</div>
+            <div className="feedback-buttons m-2">
+              <button className="feedback-button mx-2 px-2 rounded bg-slate-300 border-solid border-2 border-slate-700 hover:bg-slate-400">
+                Helpful
+              </button>
+              <button className="feedback-button mx-2 px-2  text-red-500">
+                Report
+              </button>
             </div>
 
             <div className="comment-msg">{comment.body}</div>

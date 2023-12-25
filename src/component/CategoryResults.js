@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import "./CategoryResults.css";
 import { CategoryItem } from "./CategoryItem/CategoryItem";
 import { AiOutlineDropbox } from "react-icons/ai";
 import { FiLoader } from "react-icons/fi";
@@ -26,24 +25,26 @@ function CategoryResults() {
   }, [selectedCategory]);
 
   return !isLoading ? (
-    <div className="container">
+    <div className="flex  flex-wrap justify-center ">
       {!searchKey ? (
         categoryProducts?.map((product, index) => {
           return (
-            <div key={index}>
+            <div key={index} className="">
               <CategoryItem product={product} />
             </div>
           );
         })
       ) : searchProduct.products?.length === 0 ? (
-        <div>
-          <AiOutlineDropbox size="200px" color="grey" className="unboxed" />
-          <p className="not-found">product not found</p>
+        <div className="flex flex-col justify-center">
+          <AiOutlineDropbox size="200px" color="grey" className="" />
+          <p className="not-found mb-28 text-center capitalize">
+            product not found
+          </p>
         </div>
       ) : (
         searchProduct.products?.map((product, index) => {
           return (
-            <div key={index}>
+            <div key={index} className="">
               <CategoryItem size={20} product={product} />
             </div>
           );
@@ -51,7 +52,7 @@ function CategoryResults() {
       )}
     </div>
   ) : (
-    <div className="loading">
+    <div className="loading flex justify-center my-56">
       <FiLoader size={40} /> Loading...
     </div>
   );
